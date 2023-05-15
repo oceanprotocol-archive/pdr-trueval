@@ -133,4 +133,5 @@ You can query [subgraph](http://172.15.0.15:8000/subgraphs/name/oceanprotocol/oc
 
 
 ## Next Steps
-    Customize [pdr-predictoor](https://github.com/oceanprotocol/pdr-predictoor) and [pdr-trueval](https://github.com/oceanprotocol/pdr-trueval) not to submit random values, but actually use real data
+
+Customize [pdr-predictoor](https://github.com/oceanprotocol/pdr-predictoor) and [pdr-trueval](https://github.com/oceanprotocol/pdr-trueval) not to submit random values, but actually use real data
