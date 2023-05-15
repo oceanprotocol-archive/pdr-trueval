@@ -6,9 +6,10 @@ First cut: it may work, with errors
 - once an epoch is ended, calculate the true_val and submit. 
 
 
+## How to run
 
+For full flow see [README](https://github.com/oceanprotocol/pdr-trueval/blob/main/README_local_full_flow.md)
 
-### pdr-trueval
 ```bash
 export RPC_URL=http://127.0.0.1:8545
 export SUBGRAPH_URL="http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph"

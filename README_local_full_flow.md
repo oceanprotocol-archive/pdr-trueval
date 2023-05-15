@@ -129,8 +129,8 @@ python3 main.py
 
 Now, watch as pdr-predictoor is submiting random predictions , and pdr-trueval submits random true_vals for each epoch
 
-You can query (subgraph)[http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph/graphql] and see populated data  (PR)[https://github.com/oceanprotocol/ocean-subgraph/pull/678] here for entities to be queried
+You can query [subgraph](http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph/graphql) and see populated data  [PR](https://github.com/oceanprotocol/ocean-subgraph/pull/678) here for entities 
 
 
 ## Next Steps
-    Customize (pdr-predictoor)[https://github.com/oceanprotocol/pdr-predictoor] and (pdr-trueval)[https://github.com/oceanprotocol/pdr-trueval] not to submit random values, but actually use real data
+    Customize [pdr-predictoor](https://github.com/oceanprotocol/pdr-predictoor) and [pdr-trueval](https://github.com/oceanprotocol/pdr-trueval) not to submit random values, but actually use real data
