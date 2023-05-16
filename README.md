@@ -25,7 +25,7 @@ Install requirements if needed
 pip install -r requirements.txt 
 ```
 
-Start the predictoor:
+Start:
 ```bash
 python3 main.py
 ```
