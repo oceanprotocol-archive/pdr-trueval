@@ -7,8 +7,9 @@ WARNING:  Highly WIP, most likely you will get errors or branches are out of dat
 This tutorial uses the private keys from barge:
  - OPF_DEPLOYER_PRIVATE_KEY:  `0xc594c6e5def4bab63ac29eed19a134c130388f74f019bc74b8f4389df2837a58`  - contracts owner, ocean token owner
  - PREDICTOOR_PRIVATE_KEY: `0xef4b441145c1d0f3b4bc6d61d29f5c6e502359481152f869247c7a4244d45209`  - predictoor
+ - TRADER_PRIVATE_KEY: `0x8467415bb2ba7c91084d932276214b11a3dd9bdb2930fefa194b666dd8020b99`  - trader
 
-Create four terminals, call them `barge`, `ocean.py`, `pd-predictoor`, `pd-trueval`.
+Create five terminals, call them `barge`, `ocean.py`, `pd-predictoor`, `pd-trueval` and `pdr-trader`
 
 
 ### 1. Barge terminal
@@ -35,6 +36,7 @@ Since there is no easy way now to create a template3 datatoken, we will use ocea
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 export OPF_DEPLOYER_PRIVATE_KEY="0xc594c6e5def4bab63ac29eed19a134c130388f74f019bc74b8f4389df2837a58"
 export PREDICTOOR_PRIVATE_KEY="0xef4b441145c1d0f3b4bc6d61d29f5c6e502359481152f869247c7a4244d45209"
+export TRADER_PRIVATE_KEY="0x8467415bb2ba7c91084d932276214b11a3dd9bdb2930fefa194b666dd8020b99"
 git clone https://github.com/oceanprotocol/ocean.py
 cd ocean.py
 git checkout predictoor-with-barge
@@ -56,6 +58,7 @@ from ocean_lib.web3_internal.constants import ZERO_ADDRESS, MAX_UINT256
 # add accounts
 deployer = br_accounts.add(os.getenv("OPF_DEPLOYER_PRIVATE_KEY"))
 predictoor = br_accounts.add(os.getenv("PREDICTOOR_PRIVATE_KEY"))
+trader = br_accounts.add(os.getenv("TRADER_PRIVATE_KEY"))
 connect_to_network("development")
 ADDRESS_FILE = "~/.ocean/ocean-contracts/artifacts/address.json"
 address_file = os.path.expanduser(ADDRESS_FILE)
@@ -65,8 +68,9 @@ config["ADDRESS_FILE"] = address_file
 ocean = Ocean(config)
 OCEAN = ocean.OCEAN_token
 
-# transfer ocean tokens to staker
-OCEAN.transfer(predictoor_address, to_wei(2000.0), {"from": deployer})
+# transfer ocean tokens to predictoor & trader
+OCEAN.transfer(predictoor.address, to_wei(2000.0), {"from": deployer})
+OCEAN.transfer(trader.address, to_wei(2000.0), {"from": deployer})
 
 #create NFT
 data_nft = ocean.data_nft_factory.create({"from": deployer}, "DN", "DN")
@@ -125,9 +129,22 @@ export PRIVATE_KEY="0xef4b441145c1d0f3b4bc6d61d29f5c6e502359481152f869247c7a4244
 python3 main.py
 ```
 
+### 5. pdr-trader
+
+```bash
+git clone https://github.com/oceanprotocol/pdr-trader.git
+cd pdr-trader
+pip install -r requirements.txt
+export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
+export RPC_URL=http://127.0.0.1:8545
+export SUBGRAPH_URL="http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph"
+export PRIVATE_KEY="0x8467415bb2ba7c91084d932276214b11a3dd9bdb2930fefa194b666dd8020b99"
+python3 main.py
+```
+
 ## Relax & watch
 
-Now, watch as pdr-predictoor is submiting random predictions , and pdr-trueval submits random true_vals for each epoch
+Now, watch as pdr-predictoor is submiting random predictions , pdr-trueval submits random true_vals for each epoch and pdr-trader signals trades.
 
 You can query [subgraph](http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph/graphql) and see populated data  [PR](https://github.com/oceanprotocol/ocean-subgraph/pull/678) here for entities 
 
@@ -135,3 +152,5 @@ You can query [subgraph](http://172.15.0.15:8000/subgraphs/name/oceanprotocol/oc
 ## Next Steps
 
 Customize [pdr-predictoor](https://github.com/oceanprotocol/pdr-predictoor) and [pdr-trueval](https://github.com/oceanprotocol/pdr-trueval) not to submit random values, but actually use real data
+
+Customize [pdr-trader](https://github.com/oceanprotocol/pdr-trader) to actually trade.
