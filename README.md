@@ -45,5 +45,5 @@ python3 main.py
 
 ## TO DO
   - [ ]  - implement logic for CONTRACTS_TO_SUBMIT
-  - [ ]  - improve payouts collect fllow
+  - [ ]  - improve payouts collect flow
   
