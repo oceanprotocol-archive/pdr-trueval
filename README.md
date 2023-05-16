@@ -33,7 +33,7 @@ python3 main.py
 ## Fork and customize
   The actual true_val is fetch by calling function get_true_val is in prd_trueval/trueval.py.
   
-  We call predict_function with 4 args:
+  We call get_true_val with 4 args:
    - topic:  this is ERC20.name
    - contract_address
    - initial_timestamp:   blocktime for begining of epoch - 2
@@ -41,7 +41,7 @@ python3 main.py
    
   Function returns true_val, which gets submited to contract
 
-  You need to change the function code and do some of your stuff. Now, it's just doing some random truevals
+  You need to change the [function code](https://github.com/oceanprotocol/pdr-trueval/blob/main/pdr_trueval/trueval.py#L4-L7) and do some of your stuff. Now, it's just doing some random truevals
 
 ## TO DO
   - [ ]  - implement logic for CONTRACTS_TO_SUBMIT
