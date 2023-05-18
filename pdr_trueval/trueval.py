@@ -13,4 +13,4 @@ def get_true_val(topic, contract_address, initial_timestamp, end_timestamp):
     if price_end[0][1] == price_initial[0][1]:
         return None
 
-    return price_end[0][1] >= price_initial[0][1]
+    return price_end[0][1] > price_initial[0][1]
