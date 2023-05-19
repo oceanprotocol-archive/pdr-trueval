@@ -34,10 +34,10 @@ class PredictorContract:
     def get_current_epoch(self):
         return self.contract_instance.functions.curEpoch().call()
     
-    def submit_trueval(self,true_val,block):
+    def submit_trueval(self,true_val,block,float_value,cancel_round):
         gasPrice = w3.eth.gas_price
         try:
-            tx = self.contract_instance.functions.submitTrueVal(block,true_val).transact({"from":owner,"gasPrice":gasPrice})
+            tx = self.contract_instance.functions.submitTrueVal(block,true_val,float_value,cancel_round).transact({"from":owner,"gasPrice":gasPrice})
             print(f"Submit get receipt")
             print(tx)
             receipt = w3.eth.wait_for_transaction_receipt(tx)

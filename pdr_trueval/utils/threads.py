@@ -31,10 +31,10 @@ class NewTrueVal(Thread):
         end_block = self.predictor_contract.get_block((self.epoch-1)*blocks_per_epoch)
         slot = (self.epoch-1)*blocks_per_epoch
         
-        true_val=get_true_val(self.topic['name'],self.topic['address'],initial_block['timestamp'],end_block['timestamp'])
+        (true_val,float_value,cancel_round)=get_true_val(self.topic['name'],self.topic['address'],initial_block['timestamp'],end_block['timestamp'])
         print(f"Contract:{self.predictor_contract.contract_address} - Submiting true_val {true_val} for slot:{slot}")
         try:
-            self.predictor_contract.submit_trueval(true_val,slot)
+            self.predictor_contract.submit_trueval(true_val,slot,float_value,cancel_round)
         except Exception as e:
                 print(e)
                 pass    

@@ -11,6 +11,6 @@ def get_true_val(topic, contract_address, initial_timestamp, end_timestamp):
     price_end = kraken.fetch_ohlcv(topic, "1m", since=end_timestamp, limit=1)
 
     if price_end[0][1] == price_initial[0][1]:
-        return None
+        return (True,price_end[0][1],True)
 
-    return price_end[0][1] > price_initial[0][1]
+    return (price_end[0][1] > price_initial[0][1],price_end[0][1],False)
