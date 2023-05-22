@@ -25,7 +25,12 @@ export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 git clone https://github.com/oceanprotocol/barge.git
 cd barge
 git checkout predictoor
-
+# always fetch the latest versions
+docker pull oceanprotocol/contracts:predictoor
+docker pull oceanprotocol/subgraph:predictoor
+docker pull oceanprotocol/pdr-trader:latest
+docker pull oceanprotocol/pdr-trueval:latest
+docker pull oceanprotocol/pdr-predictoor:latest
 ./start_ocean.sh --predictoor --with-pdr-trueval --with-pdr-trader --with-pdr-predictoor
 ```
 
@@ -56,7 +61,9 @@ export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 git clone https://github.com/oceanprotocol/barge.git
 cd barge
 git checkout predictoor
-
+# always fetch the latest versions
+docker pull oceanprotocol/contracts:predictoor
+docker pull oceanprotocol/subgraph:predictoor
 ./start_ocean.sh --predictoor
 ```
 
