@@ -139,6 +139,7 @@ assert len(new_elements) == 1, "new datatoken has no address"
 DT = DatatokenBase.get_typed(config, new_elements[0])
 DT.setup_exchange({"from": deployer}, to_wei(DT_price))
 print("Done")
+
 ```
 
 
