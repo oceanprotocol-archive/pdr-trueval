@@ -1,13 +1,50 @@
 
-
-## Instalation
-
 WARNING:  Highly WIP, most likely you will get errors or branches are out of date, etc.. 
 
 This tutorial uses the private keys from barge:
  - OPF_DEPLOYER_PRIVATE_KEY:  `0xc594c6e5def4bab63ac29eed19a134c130388f74f019bc74b8f4389df2837a58`  - contracts owner, ocean token owner
  - PREDICTOOR_PRIVATE_KEY: `0xef4b441145c1d0f3b4bc6d61d29f5c6e502359481152f869247c7a4244d45209`  - predictoor
  - TRADER_PRIVATE_KEY: `0x8467415bb2ba7c91084d932276214b11a3dd9bdb2930fefa194b666dd8020b99`  - trader
+
+
+There are two ways of running this, depending on your approach.
+  - Dapp,UI,etc developers shold run [Full barge](#full-barge)
+  - Predictoor developers should run [Partial barge](#partial-barge)
+
+# Full Barge
+
+This flows runs everything in barge (including pdr-trader, pdr-trueval, pdr-predictoor), except new datatoken deployment.
+Usefull for UI developers, when they don't care about data, as long it's there (some random values are enough)
+
+Create two terminals, call them `barge` and `ocean.py`
+
+### 1. Barge terminal
+
+```bash
+export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
+git clone https://github.com/oceanprotocol/barge.git
+cd barge
+git checkout predictoor
+
+./start_ocean.sh --predictoor --with-pdr-trueval --with-pdr-trader --with-pdr-predictoor
+```
+
+This will start barge with a custom version of ganache (auto-mine a block every 12 sec), contracts (predictoor), subgraph (predictoor)
+WARNING:   Barge will start more slowly, deploying contracts takes a couple of minutes.
+Watch the output to know when to proceed further or check if file "/ocean-subgraph/ready" exists.
+
+
+Then proceed to [Create template3 token](#2.-Create-template3-token)
+
+After barge is deployed, pdr* will wait for two epochs to pass, before consuming values.
+
+Wait for that first :)
+
+
+# Partial Barge
+
+This flows runs only contracts and subgraph in barge.
+Usefull for pdr-* developers
 
 Create five terminals, call them `barge`, `ocean.py`, `pd-predictoor`, `pd-trueval` and `pdr-trader`
 
@@ -28,9 +65,11 @@ WARNING:   Barge will start more slowly, deploying contracts takes a couple of m
 
 Go to next step when barge is ready and contracts are deployed
 
-## 2. Ocean.py  - create a template3 token
+## 2. Create template3 token
 
-Since there is no easy way now to create a template3 datatoken, we will use ocean.py.  This flow will be replaced
+Since there is no easy way now to create a template3 datatoken, we will use ocean.py.  Go to `ocean.py` terminal.
+
+PS: This flow will be replaced once we advance will all components into a more MVP state.
 
 ```bash
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
