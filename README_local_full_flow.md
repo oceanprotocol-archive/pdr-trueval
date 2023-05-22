@@ -34,7 +34,7 @@ WARNING:   Barge will start more slowly, deploying contracts takes a couple of m
 Watch the output to know when to proceed further or check if file "/ocean-subgraph/ready" exists.
 
 
-Then proceed to [Create template3 token](#2.-Create-template3-token)
+Then proceed to [Create template3 token](#2-create-template3-token)
 
 After barge is deployed, pdr* will wait for two epochs to pass, before consuming values.
 
