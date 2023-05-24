@@ -37,22 +37,24 @@ class PredictorContract:
     def submit_trueval(self,true_val,block,float_value,cancel_round):
         gasPrice = w3.eth.gas_price
         try:
-            tx = self.contract_instance.functions.submitTrueVal(block,true_val,float_value,cancel_round).transact({"from":owner,"gasPrice":gasPrice})
-            print(f"Submit get receipt")
-            print(tx)
+            fl_value=w3.to_wei(str(float_value),'ether')
+            tx = self.contract_instance.functions.submitTrueVal(block,true_val,fl_value,cancel_round).transact({"from":owner,"gasPrice":gasPrice})
+            print(f"Submitted trueval, txhash: {tx.hex()}")
             receipt = w3.eth.wait_for_transaction_receipt(tx)
             return receipt
-        except: 
+        except Exception as e:
+            print(e)
             return None
     
     def redeem_unused_slot_revenue(self,block):
         gasPrice = w3.eth.gas_price
         try:
             tx = self.contract_instance.functions.redeemUnusedSlotRevenue(block).transact({"from":owner,"gasPrice":gasPrice})
-            print("redeem_unused_slot_revenue get receipt")
+            print(f"redeem_unused_slot_revenue tx: {tx.hex()}")
             receipt = w3.eth.wait_for_transaction_receipt(tx)
             return receipt
-        except:
+        except Exception as e:
+            print(e)
             return None
     
     def get_blocksPerEpoch(self):

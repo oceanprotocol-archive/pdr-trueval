@@ -8,6 +8,5 @@ then
 fi
 cd /pdr-trueval/
 echo "Starting app..."
-/usr/local/bin/python main.py 2>&1 &
-tail -f /dev/null
+/usr/local/bin/python -u main.py
 

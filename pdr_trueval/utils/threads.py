@@ -1,17 +1,13 @@
 import time
 import os
-import threading
+
 from datetime import datetime, timedelta, timezone
 from threading import Thread
 
 from pdr_trueval.trueval import get_true_val
 
-threads_lock = threading.Lock()
-
 class NewTrueVal(Thread):
     def __init__(self,topic,predictor_contract,current_block_num,epoch):
-        # execute the base constructor
-        Thread.__init__(self)
         # set a default value
         self.values = { "last_submited_epoch": epoch,
                       "contract_address": predictor_contract.contract_address   
