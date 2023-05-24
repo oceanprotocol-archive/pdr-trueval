@@ -13,10 +13,10 @@ There are two ways of running this, depending on your approach.
 
 # Full Barge
 
-This flows runs everything in barge (including pdr-trader, pdr-trueval, pdr-predictoor), except new datatoken deployment.
+This flows runs everything in barge (including pdr-trader, pdr-trueval, pdr-predictoor and pdr-publisher)
 Usefull for UI developers, when they don't care about data, as long it's there (some random values are enough)
 
-Create two terminals, call them `barge` and `ocean.py`
+Open new terminal, call it `barge`
 
 ### 1. Barge terminal
 
@@ -31,15 +31,14 @@ docker pull oceanprotocol/subgraph:predictoor
 docker pull oceanprotocol/pdr-trader:latest
 docker pull oceanprotocol/pdr-trueval:latest
 docker pull oceanprotocol/pdr-predictoor:latest
-./start_ocean.sh --predictoor --with-pdr-trueval --with-pdr-trader --with-pdr-predictoor
+docker pull oceanprotocol/pdr-publisher:latest
+./start_ocean.sh --predictoor --with-pdr-trueval --with-pdr-trader --with-pdr-predictoor --with-pdr-publisher
 ```
 
 This will start barge with a custom version of ganache (auto-mine a block every 12 sec), contracts (predictoor), subgraph (predictoor)
 WARNING:   Barge will start more slowly, deploying contracts takes a couple of minutes.
 Watch the output to know when to proceed further or check if file "/ocean-subgraph/ready" exists.
 
-
-Then proceed to [Create template3 token](#2-create-template3-token)
 
 After barge is deployed, pdr* will wait for two epochs to pass, before consuming values.
 
