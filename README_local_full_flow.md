@@ -26,7 +26,7 @@ git clone https://github.com/oceanprotocol/barge.git
 cd barge
 git checkout predictoor
 # always fetch the latest versions
-docker pull oceanprotocol/contracts:predictoor
+docker pull oceanprotocol/ocean-contracts:predictoor
 docker pull oceanprotocol/subgraph:predictoor
 docker pull oceanprotocol/pdr-trader:latest
 docker pull oceanprotocol/pdr-trueval:latest
