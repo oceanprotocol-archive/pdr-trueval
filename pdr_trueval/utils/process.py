@@ -1,4 +1,4 @@
-from pdr_trueval.utils.subgraph import get_all_interesting_prediction_contracts
+from pdr_utils.subgraph import get_all_interesting_prediction_contracts
 from pdr_trueval.utils.contract import PredictorContract
 from pdr_trueval.utils.threads import NewTrueVal
 
@@ -26,6 +26,6 @@ def process_block(block):
             address=thr.values['contract_address'].lower()
             new_epoch = thr.values['last_submited_epoch']
             topics[address]["last_submited_epoch"]=new_epoch
-        
+
 
 
