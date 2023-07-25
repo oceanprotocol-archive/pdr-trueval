@@ -1,4 +1,2 @@
-web3
-eth-account
+pdr-utils==0.0.12
 ccxt
-pathlib
