@@ -1,5 +1,2 @@
-web3
-eth-account
+pdr-utils==0.0.14
 ccxt
-pathlib
-pdr-utils
