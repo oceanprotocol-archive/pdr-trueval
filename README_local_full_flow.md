@@ -32,7 +32,8 @@ docker pull oceanprotocol/pdr-trader:latest
 docker pull oceanprotocol/pdr-trueval:latest
 docker pull oceanprotocol/pdr-predictoor:latest
 docker pull oceanprotocol/pdr-publisher:latest
-./start_ocean.sh --predictoor --with-pdr-trueval --with-pdr-trader --with-pdr-predictoor --with-pdr-publisher
+docker pull oceanprotocol/pdr-dfbuyer:latest
+./start_ocean.sh --predictoor --with-pdr-trueval --with-pdr-trader --with-pdr-predictoor --with-pdr-publisher --with-pdr-dfbuyer
 ```
 
 This will start barge with a custom version of ganache (auto-mine a block every 12 sec), contracts (predictoor), subgraph (predictoor)
