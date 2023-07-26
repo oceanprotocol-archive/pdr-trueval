@@ -28,20 +28,23 @@ Start:
 ```bash
 python3 main.py
 ```
+## Additional ENV variables used to filter:
+
+ - PAIR_FILTER = if we do want to act upon only same pair, like  "BTC/USDT,ETH/USDT"
+ - TIMEFRAME_FILTER = if we do want to act upon only same timeframes, like  "5m,15m"
+ - SOURCE_FILTER = if we do want to act upon only same sources, like  "binance,kraken"
+ - OWNER_ADDRS = if we do want to act upon only same publishers, like  "0x123,0x124"
 
 ## Fork and customize
-  The actual true_val is fetch by calling function get_true_val is in prd_trueval/trueval.py.
+  The actual true_val is fetch by calling function get_true_val is in trueval.py.
 
   We call get_true_val with 4 args:
-   - topic:  this is ERC20.name
-   - contract_address
+   - topic:  this is pair object
    - initial_timestamp:   blocktime for begining of epoch - 2
    - end_timestamp:   blocktime for begining of epoch -1
 
   Function returns true_val, which gets submited to contract
 
-  You need to change the [function code](https://github.com/oceanprotocol/pdr-trueval/blob/main/pdr_trueval/trueval.py#L4-L7) and do some of your stuff. Now, it's just doing some random truevals
+  You need to change the code to support more complex flows. Now, it's based on ccxt
 
-## TO DO
-  - [ ]  - improve payouts collect flow
 

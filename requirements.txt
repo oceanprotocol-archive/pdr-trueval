@@ -1,2 +1,2 @@
-pdr-utils==0.0.12
+pdr-utils==0.0.14
 ccxt

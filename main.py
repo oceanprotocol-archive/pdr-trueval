@@ -41,7 +41,7 @@ class NewTrueVal(Thread):
         end_block = self.predictor_contract.get_block((self.epoch-1)*blocks_per_epoch)
         slot = (self.epoch-1)*blocks_per_epoch
         
-        (true_val,float_value,cancel_round)=get_true_val(self.topic['name'],self.topic['address'],initial_block['timestamp'],end_block['timestamp'])
+        (true_val,float_value,cancel_round)=get_true_val(self.topic,initial_block['timestamp'],end_block['timestamp'])
         print(f"Contract:{self.predictor_contract.contract_address} - Submiting true_val {true_val} for slot:{slot}")
         try:
             self.predictor_contract.submit_trueval(true_val,slot,float_value,cancel_round)
@@ -54,7 +54,11 @@ def process_block(block):
     global topics
     """ Process each contract and see if we need to submit """
     if not topics:
-        topics = get_all_interesting_prediction_contracts()
+        topics = get_all_interesting_prediction_contracts(os.environ.get("SUBGRAPH_URL"),
+                                                          os.environ.get("PAIR_FILTER",None),
+                                                          os.environ.get("TIMEFRAME_FILTER",None),
+                                                          os.environ.get("SOURCE_FILTER",None),
+                                                          os.environ.get("OWNER_ADDRS",None))
     print(f"Got new block: {block['number']} with {len(topics)} topics")
     threads=[]
     for address in topics:
