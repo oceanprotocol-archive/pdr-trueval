@@ -115,7 +115,9 @@ git checkout predictoor-with-barge
 Install requirements and activate venv as follows:
 ```console
 # Install OS dependencies
-sudo apt-get install -y python3-dev gcc python-pytest
+sudo apt-get update -y
+sudo apt-get install -y
+sudo apt-get install -y python3-dev gcc 
 
 # Initialize virtual environment and activate it.
 # Make sure your Python version inside the venv is >=3.8.
