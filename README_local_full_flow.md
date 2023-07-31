@@ -154,7 +154,7 @@ config["ADDRESS_FILE"] = address_file
 ocean = Ocean(config)
 OCEAN = ocean.OCEAN_token
 
-# transfer ocean tokens to predictoor & trader
+# transfer OCEAN to predictoor & trader
 OCEAN.transfer(predictoor.address, to_wei(2000.0), {"from": deployer})
 OCEAN.transfer(trader.address, to_wei(2000.0), {"from": deployer})
 
