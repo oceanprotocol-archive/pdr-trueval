@@ -1,12 +1,6 @@
 
 WARNING:  Highly WIP, most likely you will get errors or branches are out of date, etc.. 
 
-# On Private Keys
-This tutorial uses the private keys from barge:
- - OPF_DEPLOYER_PRIVATE_KEY:  `0xc594c6e5def4bab63ac29eed19a134c130388f74f019bc74b8f4389df2837a58`  - contracts owner, ocean token owner
- - PREDICTOOR_PRIVATE_KEY: `0xef4b441145c1d0f3b4bc6d61d29f5c6e502359481152f869247c7a4244d45209`  - predictoor
- - TRADER_PRIVATE_KEY: `0x8467415bb2ba7c91084d932276214b11a3dd9bdb2930fefa194b666dd8020b99`  - trader
-
 # Intro
 
 This is the end-to-end flow for using Predictoor.
@@ -17,6 +11,13 @@ There are two ways of running this, depending on your approach.
   - Let's zoom into each. 
 
 Then you can [observe](#observe) them running.
+
+### Note: Private Keys
+
+This tutorial uses the private keys from barge:
+ - OPF_DEPLOYER_PRIVATE_KEY:  `0xc594c6e5def4bab63ac29eed19a134c130388f74f019bc74b8f4389df2837a58`  - contracts owner, ocean token owner
+ - PREDICTOOR_PRIVATE_KEY: `0xef4b441145c1d0f3b4bc6d61d29f5c6e502359481152f869247c7a4244d45209`  - predictoor
+ - TRADER_PRIVATE_KEY: `0x8467415bb2ba7c91084d932276214b11a3dd9bdb2930fefa194b666dd8020b99`  - trader
 
 # Full Barge Approach
 
