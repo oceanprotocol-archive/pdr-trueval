@@ -61,10 +61,10 @@ Usefull for pdr-* developers
 
 Create five terminals, for:
 1. [barge](#Terminal-1-Barge)
-2. ocean.py (to deploy template3)
-3. pdr-predictoor
-4. pdr-trueval
-5. pdr-trader
+2. [ocean.py](#Terminal-2-ocean.py)
+3. [pdr-predictoor](#Terminal-3-pdr-predictoor)
+4. [pdr-trueval](#Terminal-4-pdr-trueval)
+5. [pdr-trader](#Terminal-5-pdr-trader)
 
 Let's go through each terminal in order.
 
