@@ -20,7 +20,7 @@ Open new terminal, call it `barge`
 
 ### 1. Barge terminal
 
-```bash
+```console
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 git clone https://github.com/oceanprotocol/barge.git
 cd barge
@@ -54,9 +54,9 @@ Usefull for pdr-* developers
 Create five terminals, call them `barge`, `ocean.py`, `pd-predictoor`, `pd-trueval` and `pdr-trader`
 
 
-### 1. Barge terminal
+### Terminal 1: Barge
 
-```bash
+```console
 # clone barge
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 git clone https://github.com/oceanprotocol/barge.git
@@ -82,13 +82,13 @@ WARNING:   Barge will start more slowly, deploying contracts takes a couple of m
 
 Go to next step when barge is ready and contracts are deployed
 
-## 2. Create template3 token
+## Terminal 2: ocean.py to create template3 token
 
 Since there is no easy way now to create a template3 datatoken, we will use ocean.py.  Go to `ocean.py` terminal.
 
 PS: This flow will be replaced once we advance will all components into a more MVP state.
 
-```bash
+```console
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 export OPF_DEPLOYER_PRIVATE_KEY="0xc594c6e5def4bab63ac29eed19a134c130388f74f019bc74b8f4389df2837a58"
 export PREDICTOOR_PRIVATE_KEY="0xef4b441145c1d0f3b4bc6d61d29f5c6e502359481152f869247c7a4244d45209"
@@ -99,8 +99,24 @@ git checkout predictoor-with-barge
 ```
 
 
-Install requirments, activate venv, etc and open a pyton console in which paste the following:
+Install requirements and activate venv as follows:
+```console
+# Install OS dependencies
+sudo apt-get install -y python3-dev gcc python-pytest
 
+# Initialize virtual environment and activate it.
+# Make sure your Python version inside the venv is >=3.8.
+python3 -m venv venv
+source venv/bin/activate
+
+# Install modules in the environment.
+pip install -r requirements_dev.txt
+
+# Open a python console
+python
+```
+
+Now, inside the python terminal:
 ```python
 import brownie
 from brownie.network import accounts as br_accounts
@@ -163,7 +179,7 @@ print("Done")
 
 ### 3. pdr-trueval
 
-```bash
+```console
 git clone https://github.com/oceanprotocol/pdr-trueval.git
 cd pdr-trueval
 pip install -r requirements.txt
@@ -177,7 +193,7 @@ python3 main.py
 
 ### 4. pdr-predictoor
 
-```bash
+```console
 git clone https://github.com/oceanprotocol/pdr-predictoor.git
 cd pdr-predictoor
 pip install -r requirements.txt
@@ -190,7 +206,7 @@ python3 main.py
 
 ### 5. pdr-trader
 
-```bash
+```console
 git clone https://github.com/oceanprotocol/pdr-trader.git
 cd pdr-trader
 pip install -r requirements.txt
