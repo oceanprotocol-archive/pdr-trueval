@@ -10,7 +10,9 @@ There are two ways of running this, depending on your approach.
   - Predictoor developers should run [Partial barge](#partial-barge-approach)
   - Let's zoom into each. 
 
-Then you can [observe](#observe) them running.
+Then, [observe](#observe) them running!
+
+Finally, [customize](#customize) to have non-random truevals, predictions, and trades respectively.
 
 ### Note: Private Keys
 
@@ -258,8 +260,12 @@ Now, relax & watch as pdr-predictoor is submiting random predictions , pdr-truev
 You can query [subgraph](http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph/graphql) and see populated data  [PR](https://github.com/oceanprotocol/ocean-subgraph/pull/678) here for entities 
 
 
-# Backlog
+# Customize
 
-Customize [pdr-predictoor](https://github.com/oceanprotocol/pdr-predictoor) and [pdr-trueval](https://github.com/oceanprotocol/pdr-trueval) not to submit random values, but actually use real data
+Here's what you can do next.
+
+Customize [pdr-trueval](https://github.com/oceanprotocol/pdr-trueval) to submit real data, not random.
+
+Customize [pdr-predictoor](https://github.com/oceanprotocol/pdr-predictoor) to submit real predictions, not random.
 
 Customize [pdr-trader](https://github.com/oceanprotocol/pdr-trader) to actually trade.
