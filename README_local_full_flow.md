@@ -22,6 +22,7 @@ Open new terminal, call it "barge".
 
 ### Terminal 1: Barge
 
+In (terminal 1) bash console:
 ```console
 # Install
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
