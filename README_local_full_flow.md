@@ -24,9 +24,9 @@ This tutorial uses these private keys from barge:
 # Full Barge Approach
 
 This flows runs everything in barge (including pdr-trader, pdr-trueval, pdr-predictoor and pdr-publisher)
-Usefull for UI developers, when they don't care about data, as long it's there (some random values are enough)
+Useful for UI developers, when they don't care about data, as long it's there (some random values are enough)
 
-Open new terminal, call it `barge`
+Open new terminal, call it "barge".
 
 ### Terminal 1: Barge
 
@@ -59,7 +59,7 @@ Wait for that first :)
 # Partial Barge Approach
 
 This flows runs only contracts and subgraph in barge.
-Usefull for pdr-* developers
+Useful for pdr-* developers
 
 Create five terminals, for:
 1. [barge](#Terminal-1-Barge)
