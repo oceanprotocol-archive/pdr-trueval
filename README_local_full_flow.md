@@ -60,7 +60,7 @@ Usefull for pdr-* developers
 
 Create five terminals, for:
 1. barge
-2. deploy template3 (via ocean.py)
+2. ocean.py (to deploy template3)
 3. pdr-predictoor
 4. pdr-trueval
 5. pdr-trader
@@ -94,7 +94,7 @@ WARNING:   Barge will start more slowly, deploying contracts takes a couple of m
 
 Go to next step when barge is ready and contracts are deployed
 
-## Terminal 2: deploy template3 (via ocean.py)
+## Terminal 2: ocean.py (to deploy template3)
 
 Since there is no easy way now to create a template3 datatoken, we will use ocean.py.  Go to `ocean.py` terminal.
 
