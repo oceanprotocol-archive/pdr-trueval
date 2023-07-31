@@ -30,9 +30,9 @@ git clone https://github.com/oceanprotocol/barge.git
 cd barge
 git checkout predictoor
 
-# always fetch the latest versions. Eg check hub.docker.com/r/oceanprotocol/ocean-contracts/tags
-docker pull oceanprotocol/ocean-contracts:FIXME
-docker pull oceanprotocol/subgraph:FIXME
+# (These are stable versions for GUI dev. We'll switch instructions to "use latest versions" once backend stabilizes again)
+docker pull oceanprotocol/ocean-contracts:predictoor2
+docker pull oceanprotocol/subgraph:predictoor
 docker pull oceanprotocol/pdr-trader:v0.0.1
 docker pull oceanprotocol/pdr-trueval:v0.0.1
 docker pull oceanprotocol/pdr-predictoor:v0.0.1
@@ -69,21 +69,15 @@ Let's go through each terminal in order.
 
 In (terminal 1) bash console:
 ```console
-# clone barge
+# Install
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 git clone https://github.com/oceanprotocol/barge.git
 cd barge
-
-# use predictoor branch
 git checkout predictoor
+docker pull oceanprotocol/ocean-contracts:predictoor3
+docker pull oceanprotocol/subgraph:predictoo3
 
-# ensure the line below has newest version at hub.docker.com/r/oceanprotocol/ocean-contracts/tags
-docker pull oceanprotocol/ocean-contracts:predictoor2
-
-# ensure the line below has newest version at https://hub.docker.com/r/oceanprotocol/subgraph/tags
-docker pull oceanprotocol/subgraph:predictoor
-
-# start!
+# Run
 ./start_ocean.sh --predictoor
 ```
 
@@ -261,6 +255,11 @@ Customize [pdr-trueval](https://github.com/oceanprotocol/pdr-trueval) to submit 
 Customize [pdr-predictoor](https://github.com/oceanprotocol/pdr-predictoor) to submit real predictions, not random.
 
 Customize [pdr-trader](https://github.com/oceanprotocol/pdr-trader) to actually trade.
+
+# Appendix: Links to Docker Images
+
+- https://hub.docker.com/r/oceanprotocol/ocean-contracts
+- etc
 
 # Appendix: On Private Keys
 
