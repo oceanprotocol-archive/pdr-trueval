@@ -78,7 +78,7 @@ docker pull oceanprotocol/ocean-contracts:predictoor3
 docker pull oceanprotocol/subgraph:predictoo3
 
 # Run
-./start_ocean.sh --predictoor
+./start_ocean.sh --new-predictoor
 ```
 
 This will start barge with a custom version of ganache (auto-mine a block every 12 sec), contracts (predictoor), subgraph (predictoor)
@@ -256,10 +256,14 @@ Customize [pdr-predictoor](https://github.com/oceanprotocol/pdr-predictoor) to s
 
 Customize [pdr-trader](https://github.com/oceanprotocol/pdr-trader) to actually trade.
 
-# Appendix: Links to Docker Images
+# Appendix: Useful Links
 
+To docker images
 - https://hub.docker.com/r/oceanprotocol/ocean-contracts
 - etc
+
+PR for old vs new predictoor in barge:
+- https://github.com/oceanprotocol/barge/blob/2bf56ed49abc478d3c5555aaacf7443b0e56a7ed/start_ocean.sh
 
 # Appendix: On Private Keys
 
