@@ -32,8 +32,8 @@ export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 git clone https://github.com/oceanprotocol/barge.git
 cd barge
 git checkout predictoor
-# always fetch the latest versions
-docker pull oceanprotocol/ocean-contracts:predictoor
+# always fetch the latest versions. Eg check hub.docker.com/r/oceanprotocol/ocean-contracts/tags
+docker pull oceanprotocol/ocean-contracts:predictoor2
 docker pull oceanprotocol/subgraph:predictoor
 docker pull oceanprotocol/pdr-trader:latest
 docker pull oceanprotocol/pdr-trueval:latest
@@ -79,12 +79,10 @@ cd barge
 # use predictoor branch
 git checkout predictoor
 
-# check dockerhub for the latest version
-#   at https://hub.docker.com/r/oceanprotocol/ocean-contracts/tags
-# if it's changed from predictoor2, update the line below
+# ensure the line below has newest version at hub.docker.com/r/oceanprotocol/ocean-contracts/tags
 docker pull oceanprotocol/ocean-contracts:predictoor2
 
-# check for latest version, update if needed https://hub.docker.com/r/oceanprotocol/subgraph/tags
+# ensure the line below has newest version at https://hub.docker.com/r/oceanprotocol/subgraph/tags
 docker pull oceanprotocol/subgraph:predictoor
 
 # start!
