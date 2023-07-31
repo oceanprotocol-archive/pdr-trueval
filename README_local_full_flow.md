@@ -160,6 +160,8 @@ OCEAN.transfer(trader.address, to_wei(2000.0), {"from": deployer})
 
 #create NFT
 data_nft = ocean.data_nft_factory.create({"from": deployer}, "DN", "DN")
+
+#settings for template 3
 S_PER_MIN = 60
 S_PER_HOUR = 60 * 60
 # for our ganache, have one epoch per minute (every 60 blocks)
@@ -168,7 +170,7 @@ s_per_epoch = 1 * S_PER_MIN
 s_per_subscription = 24 * S_PER_HOUR
 min_predns_for_payout = 3  # ideally, 100+
 stake_token = OCEAN
-DT_price = 2
+DT_price = 2 # priced in OCEAN
 
 #create template3
 initial_list = data_nft.getTokensList()
@@ -187,10 +189,9 @@ assert len(new_elements) == 1, "new datatoken has no address"
 DT = DatatokenBase.get_typed(config, new_elements[0])
 DT.setup_exchange({"from": deployer}, to_wei(DT_price))
 print("Done")
-
 ```
 
-### Terminal 3. pdr-trueval
+### Terminal 3: pdr-trueval
 
 ```console
 git clone https://github.com/oceanprotocol/pdr-trueval.git
