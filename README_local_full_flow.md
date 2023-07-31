@@ -57,13 +57,21 @@ Create five terminals, call them `barge`, `ocean.py`, `pd-predictoor`, `pd-truev
 ### 1. Barge terminal
 
 ```bash
+# clone barge
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 git clone https://github.com/oceanprotocol/barge.git
 cd barge
+
+# use predictoor branch
 git checkout predictoor
-# always fetch the latest versions
-docker pull oceanprotocol/contracts:predictoor
-docker pull oceanprotocol/subgraph:predictoor
+
+# check for latest version & update the next line if needed. See https://hub.docker.com/r/oceanprotocol/ocean-contracts/tags
+docker pull oceanprotocol/ocean-contracts:predictoor2
+
+# check for latest version, update below if needed. See https://hub.docker.com/r/oceanprotocol/subgraph/tags
+docker pull oceanprotocol/subgraph:predictoor2
+
+# start!
 ./start_ocean.sh --predictoor
 ```
 
