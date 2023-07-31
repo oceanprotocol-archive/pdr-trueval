@@ -118,8 +118,7 @@ sudo apt-get update -y
 sudo apt-get install -y
 sudo apt-get install -y python3-dev gcc 
 
-# Initialize virtual environment and activate it.
-# Make sure your Python version inside the venv is >=3.8.
+# Initialize virtualenv
 python3 -m venv venv
 source venv/bin/activate
 
@@ -194,13 +193,20 @@ print("Done")
 ### Terminal 3: pdr-trueval
 
 ```console
+# Install
 git clone https://github.com/oceanprotocol/pdr-trueval.git
 cd pdr-trueval
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+
+# Set envvars
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 export RPC_URL=http://127.0.0.1:8545
 export SUBGRAPH_URL="http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph"
 export PRIVATE_KEY="0xc594c6e5def4bab63ac29eed19a134c130388f74f019bc74b8f4389df2837a58"
+
+# Run
 python3 main.py
 ```
 
@@ -208,26 +214,40 @@ python3 main.py
 ### Terminal 4: pdr-predictoor
 
 ```console
+# Install
 git clone https://github.com/oceanprotocol/pdr-predictoor.git
 cd pdr-predictoor
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+
+# Set envvars
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 export RPC_URL=http://127.0.0.1:8545
 export SUBGRAPH_URL="http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph"
 export PRIVATE_KEY="0xef4b441145c1d0f3b4bc6d61d29f5c6e502359481152f869247c7a4244d45209"
+
+# Run
 python3 main.py
 ```
 
 ### Terminal 5: pdr-trader
 
 ```console
+# Install
 git clone https://github.com/oceanprotocol/pdr-trader.git
 cd pdr-trader
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+
+# Set envvars
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 export RPC_URL=http://127.0.0.1:8545
 export SUBGRAPH_URL="http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph"
 export PRIVATE_KEY="0x8467415bb2ba7c91084d932276214b11a3dd9bdb2930fefa194b666dd8020b99"
+
+# Run
 python3 main.py
 ```
 
