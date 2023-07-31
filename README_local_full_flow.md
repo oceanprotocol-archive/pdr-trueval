@@ -1,15 +1,22 @@
 
 WARNING:  Highly WIP, most likely you will get errors or branches are out of date, etc.. 
 
+# On Private Keys
 This tutorial uses the private keys from barge:
  - OPF_DEPLOYER_PRIVATE_KEY:  `0xc594c6e5def4bab63ac29eed19a134c130388f74f019bc74b8f4389df2837a58`  - contracts owner, ocean token owner
  - PREDICTOOR_PRIVATE_KEY: `0xef4b441145c1d0f3b4bc6d61d29f5c6e502359481152f869247c7a4244d45209`  - predictoor
  - TRADER_PRIVATE_KEY: `0x8467415bb2ba7c91084d932276214b11a3dd9bdb2930fefa194b666dd8020b99`  - trader
 
+# Intro
+
+This is the end-to-end flow for using Predictoor.
 
 There are two ways of running this, depending on your approach.
-  - Dapp,UI,etc developers shold run [Full barge](#full-barge-approach)
+  - Dapp,UI,etc developers should run [Full barge](#full-barge-approach)
   - Predictoor developers should run [Partial barge](#partial-barge-approach)
+  - Let's zoom into each. 
+
+Then you can [observe](#observe) them running.
 
 # Full Barge Approach
 
@@ -222,14 +229,14 @@ export PRIVATE_KEY="0x8467415bb2ba7c91084d932276214b11a3dd9bdb2930fefa194b666dd8
 python3 main.py
 ```
 
-## Relax & watch
+# Observe
 
-Now, watch as pdr-predictoor is submiting random predictions , pdr-trueval submits random true_vals for each epoch and pdr-trader signals trades.
+Now, relax & watch as pdr-predictoor is submiting random predictions , pdr-trueval submits random true_vals for each epoch and pdr-trader signals trades.
 
 You can query [subgraph](http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph/graphql) and see populated data  [PR](https://github.com/oceanprotocol/ocean-subgraph/pull/678) here for entities 
 
 
-## Next Steps
+# Backlog
 
 Customize [pdr-predictoor](https://github.com/oceanprotocol/pdr-predictoor) and [pdr-trueval](https://github.com/oceanprotocol/pdr-trueval) not to submit random values, but actually use real data
 
