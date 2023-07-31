@@ -32,12 +32,12 @@ git checkout predictoor
 
 # always fetch the latest versions. Eg check hub.docker.com/r/oceanprotocol/ocean-contracts/tags
 docker pull oceanprotocol/ocean-contracts:predictoor2
-docker pull oceanprotocol/subgraph:predictoor
+docker pull oceanprotocol/subgraph:v0.0.1
 docker pull oceanprotocol/pdr-trader:latest
-docker pull oceanprotocol/pdr-trueval:latest
-docker pull oceanprotocol/pdr-predictoor:latest
-docker pull oceanprotocol/pdr-publisher:latest
-docker pull oceanprotocol/pdr-dfbuyer:latest
+docker pull oceanprotocol/pdr-trueval:v0.0.1
+docker pull oceanprotocol/pdr-predictoor:v0.0.1
+docker pull oceanprotocol/pdr-publisher:v0.0.1
+docker pull oceanprotocol/pdr-dfbuyer:v0.0.1
 
 # Run
 ./start_ocean.sh --predictoor --with-pdr-trueval --with-pdr-trader --with-pdr-predictoor --with-pdr-publisher --with-pdr-dfbuyer
