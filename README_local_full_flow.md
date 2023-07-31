@@ -23,10 +23,12 @@ Open new terminal, call it "barge".
 ### Terminal 1: Barge
 
 ```console
+# Install
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 git clone https://github.com/oceanprotocol/barge.git
 cd barge
 git checkout predictoor
+
 # always fetch the latest versions. Eg check hub.docker.com/r/oceanprotocol/ocean-contracts/tags
 docker pull oceanprotocol/ocean-contracts:predictoor2
 docker pull oceanprotocol/subgraph:predictoor
@@ -35,17 +37,16 @@ docker pull oceanprotocol/pdr-trueval:latest
 docker pull oceanprotocol/pdr-predictoor:latest
 docker pull oceanprotocol/pdr-publisher:latest
 docker pull oceanprotocol/pdr-dfbuyer:latest
+
+# Run
 ./start_ocean.sh --predictoor --with-pdr-trueval --with-pdr-trader --with-pdr-predictoor --with-pdr-publisher --with-pdr-dfbuyer
 ```
 
 This will start barge with a custom version of ganache (auto-mine a block every 12 sec), contracts (predictoor), subgraph (predictoor)
-WARNING:   Barge will start more slowly, deploying contracts takes a couple of minutes.
-Watch the output to know when to proceed further or check if file "/ocean-subgraph/ready" exists.
+- WARNING!! Barge will start more slowly. Deploying contracts takes a couple of minutes.
+- Watch the output to know when to proceed further or check if file "/ocean-subgraph/ready" exists.
 
-
-After barge is deployed, pdr* will wait for two epochs to pass, before consuming values.
-
-Wait for that first :)
+After barge is deployed, pdr* will wait for two epochs to pass, before consuming values. Wait for that first :)
 
 
 # Partial Barge Approach
@@ -65,6 +66,7 @@ Let's go through each terminal in order.
 
 ### Terminal 1: Barge
 
+In (terminal 1) bash console:
 ```console
 # clone barge
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
@@ -91,39 +93,34 @@ Go to next step when barge is ready and contracts are deployed
 
 ## Terminal 2: ocean.py
 
-Since there is no easy way now to create a template3 datatoken, we will use ocean.py.  Go to `ocean.py` terminal.
+Since there is no easy way now to create a template3 datatoken, we will use ocean.py.  
 
-PS: This flow will be replaced once we advance will all components into a more MVP state.
+Note: This flow will be replaced once we advance will all components into a more MVP state.
 
+In bash console:
 ```console
+# Install
+git clone https://github.com/oceanprotocol/ocean.py
+cd ocean.py
+git checkout predictoor-with-barge
+sudo apt-get update -y
+sudo apt-get install -y
+sudo apt-get install -y python3-dev gcc 
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements_dev.txt
+
+# Set envvars
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
 export OPF_DEPLOYER_PRIVATE_KEY="0xc594c6e5def4bab63ac29eed19a134c130388f74f019bc74b8f4389df2837a58"
 export PREDICTOOR_PRIVATE_KEY="0xef4b441145c1d0f3b4bc6d61d29f5c6e502359481152f869247c7a4244d45209"
 export TRADER_PRIVATE_KEY="0x8467415bb2ba7c91084d932276214b11a3dd9bdb2930fefa194b666dd8020b99"
-git clone https://github.com/oceanprotocol/ocean.py
-cd ocean.py
-git checkout predictoor-with-barge
-```
 
-Install requirements and activate venv as follows:
-```console
-# Install OS dependencies
-sudo apt-get update -y
-sudo apt-get install -y
-sudo apt-get install -y python3-dev gcc 
-
-# Initialize virtualenv
-python3 -m venv venv
-source venv/bin/activate
-
-# Install modules in the environment.
-pip install -r requirements_dev.txt
-
-# Open a python console
+# Open Python terminal
 python
 ```
 
-Now, inside the python terminal:
+Inside the Python terminal:
 ```python
 import brownie
 from brownie.network import accounts as br_accounts
@@ -186,6 +183,7 @@ print("Done")
 
 ### Terminal 3: pdr-trueval
 
+In bash console:
 ```console
 # Install
 git clone https://github.com/oceanprotocol/pdr-trueval.git
@@ -207,6 +205,7 @@ python3 main.py
 
 ### Terminal 4: pdr-predictoor
 
+In bash console:
 ```console
 # Install
 git clone https://github.com/oceanprotocol/pdr-predictoor.git
@@ -227,6 +226,7 @@ python3 main.py
 
 ### Terminal 5: pdr-trader
 
+In bash console:
 ```console
 # Install
 git clone https://github.com/oceanprotocol/pdr-trader.git
@@ -250,7 +250,6 @@ python3 main.py
 Now, relax & watch as pdr-predictoor is submiting random predictions , pdr-trueval submits random true_vals for each epoch and pdr-trader signals trades.
 
 You can query [subgraph](http://172.15.0.15:8000/subgraphs/name/oceanprotocol/ocean-subgraph/graphql) and see populated data  [PR](https://github.com/oceanprotocol/ocean-subgraph/pull/678) here for entities 
-
 
 # Customize
 
