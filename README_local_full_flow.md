@@ -8,17 +8,17 @@ This tutorial uses the private keys from barge:
 
 
 There are two ways of running this, depending on your approach.
-  - Dapp,UI,etc developers shold run [Full barge](#full-barge)
-  - Predictoor developers should run [Partial barge](#partial-barge)
+  - Dapp,UI,etc developers shold run [Full barge](#full-barge-approach)
+  - Predictoor developers should run [Partial barge](#partial-barge-approach)
 
-# Full Barge
+# Full Barge Approach
 
 This flows runs everything in barge (including pdr-trader, pdr-trueval, pdr-predictoor and pdr-publisher)
 Usefull for UI developers, when they don't care about data, as long it's there (some random values are enough)
 
 Open new terminal, call it `barge`
 
-### 1. Barge terminal
+### Terminal 1: Barge
 
 ```console
 export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
@@ -46,12 +46,19 @@ After barge is deployed, pdr* will wait for two epochs to pass, before consuming
 Wait for that first :)
 
 
-# Partial Barge
+# Partial Barge Approach
 
 This flows runs only contracts and subgraph in barge.
 Usefull for pdr-* developers
 
-Create five terminals, call them `barge`, `ocean.py`, `pd-predictoor`, `pd-trueval` and `pdr-trader`
+Create five terminals, for:
+1. barge
+2. deploy template3 (via ocean.py)
+3. pdr-predictoor
+4. pdr-trueval
+5. pdr-trader
+
+Let's go through each terminal in order.
 
 
 ### Terminal 1: Barge
@@ -82,7 +89,7 @@ WARNING:   Barge will start more slowly, deploying contracts takes a couple of m
 
 Go to next step when barge is ready and contracts are deployed
 
-## Terminal 2: ocean.py to create template3 token
+## Terminal 2: deploy template3 (via ocean.py)
 
 Since there is no easy way now to create a template3 datatoken, we will use ocean.py.  Go to `ocean.py` terminal.
 
@@ -97,7 +104,6 @@ git clone https://github.com/oceanprotocol/ocean.py
 cd ocean.py
 git checkout predictoor-with-barge
 ```
-
 
 Install requirements and activate venv as follows:
 ```console
@@ -176,8 +182,7 @@ print("Done")
 
 ```
 
-
-### 3. pdr-trueval
+### Terminal 3. pdr-trueval
 
 ```console
 git clone https://github.com/oceanprotocol/pdr-trueval.git
@@ -191,7 +196,7 @@ python3 main.py
 ```
 
 
-### 4. pdr-predictoor
+### Terminal 4: pdr-predictoor
 
 ```console
 git clone https://github.com/oceanprotocol/pdr-predictoor.git
@@ -204,7 +209,7 @@ export PRIVATE_KEY="0xef4b441145c1d0f3b4bc6d61d29f5c6e502359481152f869247c7a4244
 python3 main.py
 ```
 
-### 5. pdr-trader
+### Terminal 5: pdr-trader
 
 ```console
 git clone https://github.com/oceanprotocol/pdr-trader.git
