@@ -1,4 +1,10 @@
-First cut: it may work, with errors
+## End-to-end flow
+
+**[Go here](https://github.com/oceanprotocol/pdr-trueval/blob/main/README_local_full_flow.md)** for the README with _all_ components. (It currently happens to be in pdr-trueval repo).
+
+## Intro
+
+The rest of _this_ README is for running the "trueval" aspect.
 
 ## Flow
 - reads from subgraph list of template3 contracts, this gets list of all template3 deployed contracts
@@ -7,8 +13,6 @@ First cut: it may work, with errors
 
 
 ## How to run
-
-For full flow see [README](https://github.com/oceanprotocol/pdr-trueval/blob/main/README_local_full_flow.md)
 
 ```bash
 export RPC_URL=http://127.0.0.1:8545
