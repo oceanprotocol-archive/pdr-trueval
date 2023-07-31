@@ -31,9 +31,9 @@ cd barge
 git checkout predictoor
 
 # always fetch the latest versions. Eg check hub.docker.com/r/oceanprotocol/ocean-contracts/tags
-docker pull oceanprotocol/ocean-contracts:predictoor2
-docker pull oceanprotocol/subgraph:v0.0.1
-docker pull oceanprotocol/pdr-trader:latest
+docker pull oceanprotocol/ocean-contracts:FIXME
+docker pull oceanprotocol/subgraph:FIXME
+docker pull oceanprotocol/pdr-trader:v0.0.1
 docker pull oceanprotocol/pdr-trueval:v0.0.1
 docker pull oceanprotocol/pdr-predictoor:v0.0.1
 docker pull oceanprotocol/pdr-publisher:v0.0.1
