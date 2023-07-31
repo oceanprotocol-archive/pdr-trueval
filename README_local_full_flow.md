@@ -71,7 +71,7 @@ git checkout predictoor
 docker pull oceanprotocol/ocean-contracts:predictoor2
 
 # check for latest version, update if needed https://hub.docker.com/r/oceanprotocol/subgraph/tags
-docker pull oceanprotocol/subgraph:predictoor2
+docker pull oceanprotocol/subgraph:predictoor
 
 # start!
 ./start_ocean.sh --predictoor
