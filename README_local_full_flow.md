@@ -6,8 +6,8 @@ WARNING:  Highly WIP, most likely you will get errors or branches are out of dat
 This is the end-to-end flow for using Predictoor.
 
 **First: get components running**, via one of:
-  - [Full barge](#full-barge-approach) -- For Dapp,UI,etc developers who aren't changing backend components
-  - [Partial barge](#partial-barge-approach) -- For Predictoor developers, to change truevals, predictions, or trades
+  - [Full barge](#full-barge-approach) -- For dapp devs not changing backend
+  - [Partial barge](#partial-barge-approach) -- For backend devs
 
 **Then: [observe](#observe)** them running!
 
