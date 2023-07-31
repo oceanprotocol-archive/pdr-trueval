@@ -5,14 +5,13 @@ WARNING:  Highly WIP, most likely you will get errors or branches are out of dat
 
 This is the end-to-end flow for using Predictoor.
 
-There are two ways of running this, depending on your approach.
-  - Dapp,UI,etc developers should run [Full barge](#full-barge-approach)
-  - Predictoor developers should run [Partial barge](#partial-barge-approach)
-  - Let's zoom into each. 
+**First: get components running**, via one of:
+  - [Full barge](#full-barge-approach) -- For Dapp,UI,etc developers who aren't changing backend components
+  - [Partial barge](#partial-barge-approach) -- For Predictoor developers, to change truevals, predictions, or trades
 
-Then, [observe](#observe) them running!
+**Then: [observe](#observe)** them running!
 
-Finally, [customize](#customize) to have non-random truevals, predictions, and trades.
+**Finally: [customize](#customize)** backend components for non-random truevals, predictions, and trades.
 
 **On Private Keys**
 
