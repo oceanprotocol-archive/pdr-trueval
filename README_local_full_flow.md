@@ -13,7 +13,7 @@ This is the end-to-end flow for using Predictoor.
 
 **Finally: [customize](#customize)** backend for non-random truevals, predictions, and trades.
 
-# Full Barge Approach
+# Full Barge Approach - Stable contracts & components
 
 This flows runs everything in barge (including pdr-trader, pdr-trueval, pdr-predictoor and pdr-publisher)
 Useful for UI developers, when they don't care about data, as long it's there (some random values are enough)
@@ -49,6 +49,32 @@ This will start barge with a custom version of ganache (auto-mine a block every 
 
 After barge is deployed, pdr* will wait for two epochs to pass, before consuming values. Wait for that first :)
 
+# Full Barge Approach - Latest versions
+
+Open new terminal, call it "barge".
+
+### Terminal 1: Barge
+
+In (terminal 1) bash console:
+```console
+# Install
+export ADDRESS_FILE="${HOME}/.ocean/ocean-contracts/artifacts/address.json"
+git clone https://github.com/oceanprotocol/barge.git
+cd barge
+git checkout predictoor
+
+# (These are stable versions for GUI dev. We'll switch instructions to "use latest versions" once backend stabilizes again)
+docker pull oceanprotocol/ocean-contracts:predictoor3
+docker pull oceanprotocol/subgraph:predictoor3
+docker pull oceanprotocol/pdr-trader:latest
+docker pull oceanprotocol/pdr-trueval:latest
+docker pull oceanprotocol/pdr-predictoor:latest
+docker pull oceanprotocol/pdr-publisher:latest
+docker pull oceanprotocol/pdr-dfbuyer:latest
+
+# Run
+./start_ocean.sh --new-predictoor --with-pdr-trueval --with-pdr-trader --with-pdr-predictoor --with-pdr-publisher --with-pdr-dfbuyer
+```
 
 # Partial Barge Approach
 
