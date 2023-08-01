@@ -75,7 +75,7 @@ git clone https://github.com/oceanprotocol/barge.git
 cd barge
 git checkout predictoor
 docker pull oceanprotocol/ocean-contracts:predictoor3
-docker pull oceanprotocol/subgraph:predictoo3
+docker pull oceanprotocol/subgraph:predictoor3
 
 # Run
 ./start_ocean.sh --new-predictoor
